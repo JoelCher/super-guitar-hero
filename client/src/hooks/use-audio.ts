@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const useAudio = (url: string): [boolean, () => void] => {
+export const useAudio = (url: string): [boolean, () => void, HTMLAudioElement] => {
     const [audio] = useState(new Audio(url));
     const [playing, setPlaying] = useState(false);
 
@@ -19,6 +19,6 @@ export const useAudio = (url: string): [boolean, () => void] => {
         };
     }, []);
 
-    return [playing, toggle];
+    return [playing, toggle, audio];
 };
 
