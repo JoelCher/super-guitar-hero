@@ -1,18 +1,20 @@
 import { useEffect } from 'react'
-import './App.css'
+import './App.scss'
+
 
 function App() {
 
-
-
   useEffect(() => {
-    const canvas = document.querySelector();
+    const audio = new Audio("/audio.mp3")
+    audio.play();
 
-
+    window.addEventListener("click", () => {
+      if (audio)
+        console.log(audio.currentTime)
+    })
   }, [])
   return (
     <div className='app'>
-      <canvas className='game-canvas' />
     </div>
   )
 }
