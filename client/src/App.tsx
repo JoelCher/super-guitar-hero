@@ -1,18 +1,22 @@
 import { useEffect } from 'react'
 import './App.scss'
+import { useAudio } from './hooks/use-audio'
 
 
 function App() {
+  const [playing, toggle] = useAudio("/audio.mp3")
 
   useEffect(() => {
-    const audio = new Audio("/audio.mp3")
-    audio.play();
-
     window.addEventListener("click", () => {
-      if (audio)
-        console.log(audio.currentTime)
+      toggle();
     })
+
+
+    // return () => {
+    //   window.removeEventListener("click")
+    // }
   }, [])
+
   return (
     <div className='app'>
     </div>
@@ -20,3 +24,4 @@ function App() {
 }
 
 export default App
+
